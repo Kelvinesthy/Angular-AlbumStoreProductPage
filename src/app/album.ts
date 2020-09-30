@@ -1,8 +1,8 @@
 import { Track } from "./track";
 
-export interface Album {
+export interface IAlbum {
   name : string,
   releaseDate: string,
   coverImage: string,
-  tracks: Track[]
+  tracks: ITrack[]
 }
