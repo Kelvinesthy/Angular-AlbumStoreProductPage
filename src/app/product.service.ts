@@ -8,9 +8,8 @@ import { Product } from "./product";
 import 'rxjs/add/operator/map'
 @Injectable()
 export class ProductService {
-  private _privatesUrl = '../assets/products.json'
   private _albumUrl = '../assets/album.json';
-
+  private _productsUrl = '../assets/products.json'
 
   constructor(private _http: Http) { }
 
@@ -18,8 +17,7 @@ export class ProductService {
     return this._http.get(this._albumUrl).map((response) => <Album>response.json());
   }
 
-  getProducts(){
-    this._http.get(this._privatesUrl).map((response) => <Product[]>response.json());
-    return Observable<Product[]>
+  getProducts(): Observable<Product[]>{
+    return this._http.get(this._productsUrl).map(response => <Product[]>response.json());
   }
 }
